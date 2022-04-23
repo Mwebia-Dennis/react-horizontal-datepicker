@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 
 ## Updates
-* @propname: value => to be when you need to control the selected date state of the calendar from another parent component
+* @propname: value => to be used when you need to control the selected date state of the calendar from another parent component
 * @propname: disablePastDays => disabling and enabling teh past days 
 
 ## react-horizontal-strip-datepicker
