@@ -8,13 +8,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-size: 17px;
+    line-height: 48px;
     cursor: pointer;
     /* margin: 0 12px 0 12px; */
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
-    border-radius: 50%;
-    border: 2px solid #fdfbfb;    /* color: #e6545b; */
+    border-radius: 50%;    
+    background-color:  #fff;
+    border: 2px solid #fff;
+    color: #000;   
+    margin-right: 5px;
 }
 
 .datepicker-button-previous-wrapper {
@@ -24,8 +29,8 @@
     align-items: center;
     cursor: pointer;
     margin: 0 0 0 12px;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     border-radius: 50%;
     /* color: #e6545b; */
@@ -45,20 +50,23 @@
 }
 
 .date-day-Item-selected {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    border: 2px solid #e6545b;
-    color: #e6545b;
+    background-color:  #F0973B;
+    border: 2px solid #F0973B;
+    color: #fff;    
 
 }
 
 .datepicker-date-day-Item:hover{
-    background-color:  #e6545b;
+    background-color:  #F0973B;
+    border: 2px solid #F0973B;
+    color: #fff;
     border: 2px solid transparent;
     color: #fff;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 
 }
@@ -118,12 +126,12 @@
 .datepicker-button-previous, .datepicker-button-next{
     border: none;
     text-decoration: none;
-    background: #e6545b;
+    background: transparent;
     cursor: pointer;
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    color: white;
+    width: 40px;
+    height: 40px;
+    color: black;
     font-size: 20px;
     font-weight: bold;
     flex-shrink: 0;
@@ -136,8 +144,8 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     border-radius: 50%;
     border: 2px solid transparent;

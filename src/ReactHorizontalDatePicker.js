@@ -11,13 +11,15 @@ import {
   isBefore,
   getDate
 } from "date-fns";
+import { ArrowForwardIos } from "@mui/icons-material";
 
 export default React.memo(function ReactHorizontalDatePicker({
   enableDays,
   enableScroll,
-  selectedDay
+  selectedDay,
+  value
 }) {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(value?value:new Date());
   const [headingDate, setHeadingDate] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState(new Date());
   const [currentDate] = useState(new Date());
@@ -88,9 +90,9 @@ export default React.memo(function ReactHorizontalDatePicker({
               )}`}
               onClick={() => onDateClick(addDays(_startDay, i))}
             >
-              <div className="datepicker-day-label ">{_day}</div>
               <div className="datepicker-date-label ripple ">{_date}</div>
             </div>
+            <div className="datepicker-day-label ">{_day}</div>
           </div>
         </Waypoint>
       );
@@ -112,8 +114,13 @@ export default React.memo(function ReactHorizontalDatePicker({
 
   const onDateClick = day => {
     setSelectedDate(day);
-    selectedDay(selectedDate);
   };
+
+  //call selected day with the date value after state change
+  useEffect(() => {    
+    selectedDay(selectedDate);
+  }, [selectedDate])
+  
 
   const nextScroll = () => {
     enableScroll
@@ -138,7 +145,7 @@ export default React.memo(function ReactHorizontalDatePicker({
           <div className="button-previous">
             {" "}
             <button className="datepicker-button-previous" onClick={prevScroll}>
-              &#10132;
+              { <ArrowForwardIos sx={{fontSize: '20px'}} /> }
             </button>
           </div>
         </div>
@@ -149,7 +156,7 @@ export default React.memo(function ReactHorizontalDatePicker({
           <div className="button-previous">
             {" "}
             <button className="datepicker-button-next" onClick={nextScroll}>
-              &#10132;
+              {<ArrowForwardIos sx={{fontSize: '20px'}} />}
             </button>
           </div>
         </div>
