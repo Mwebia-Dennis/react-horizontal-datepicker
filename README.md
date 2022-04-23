@@ -6,6 +6,7 @@ In the project directory, you can run:
 
 
 ## Updates
+* bug fixing: resolved issue with the date. the correct date is being returned via selectedDay function
 * @propname: value => to be used when you need to control the selected date state of the calendar from another parent component
 * @propname: disablePastDays => disabling and enabling teh past days 
 
