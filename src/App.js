@@ -9,7 +9,8 @@ function App() {
   };
 
   return (
-    <ReactHorizontalDatePicker value={new Date()} selectedDay={onSelectedDay} enableScroll={true} enableDays={180}/> 
+    <ReactHorizontalDatePicker value={new Date()}
+    enableDaysBefore={10} selectedDay={onSelectedDay} enableScroll={true} enableDays={180} disablePastDays={false}  /> 
   );
 }
 

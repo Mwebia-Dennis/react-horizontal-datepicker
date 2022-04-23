@@ -15,22 +15,32 @@ import { ArrowForwardIos } from "@mui/icons-material";
 
 export default React.memo(function ReactHorizontalDatePicker({
   enableDays,
+  enableDaysBefore,
   enableScroll,
   selectedDay,
-  value
+  value,
+  disablePastDays
 }) {
   const [selectedDate, setSelectedDate] = useState(value?value:new Date());
   const [headingDate, setHeadingDate] = useState(new Date());
   const [currentWeek, setCurrentWeek] = useState(new Date());
   const [currentDate] = useState(new Date());
-  const scrollWidth = 250;
+  const scrollWidth = 57;
   enableScroll = enableScroll || false;
   enableDays = enableScroll === true ? enableDays || 90 : 7;
+  enableDaysBefore = enableScroll === true ? enableDaysBefore || 10 : 7;
+  disablePastDays = (disablePastDays !== undefined && disablePastDays !== null && disablePastDays !== "" )?disablePastDays:true
   const heading_dateFormat = "MMM yyyy";
 
   useEffect(() => {
     console.log(headingDate);
   }, [headingDate]);
+
+  // useEffect(() => {
+  //   (document.getElementById("container").scrollLeft += (53 * enableDaysBefore))
+  
+  // }, [])
+  
 
   const applyStyles = day => {
     const classes = [];
@@ -38,7 +48,7 @@ export default React.memo(function ReactHorizontalDatePicker({
       classes.push(" date-day-Item-selected");
     }
 
-    if (isBefore(day, currentDate)) {
+    if (isBefore(day, currentDate) && disablePastDays) {
       classes.push(" date-day-item-disabled");
     }
     return classes.join(" ");
@@ -63,7 +73,7 @@ export default React.memo(function ReactHorizontalDatePicker({
     const _verticalListItems = [];
     const _startDay = subDays(currentWeek, 1);
 
-    for (let i = 0; i < enableDays; i++) {
+    for (let i = (-1 * enableDaysBefore); i < enableDays; i++) {
       let _day = format(addDays(_startDay, i), _dayFormat);
       let _date = format(addDays(_startDay, i), _dateFormat);
       let _month = format(addDays(_startDay, i), _monthFormat);
