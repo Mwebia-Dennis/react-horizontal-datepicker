@@ -47,7 +47,7 @@ Available Props are
 | enableDays         | Number   | 90      | Number of days to render from current date |
 | enableDaysBefore   | Number   | 0     | Number of days to render before current date |
 | value              | Date     | new Date()| a date to control the selected date |
-| disablePastDays     | Boolean   | true     | disbale days in the past |
+| disablePastDays     | Boolean   | true     | disable days in the past |
 
 
 enableDays has no effect if enableScroll is true.
